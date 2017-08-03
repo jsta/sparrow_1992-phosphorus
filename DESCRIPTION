@@ -4,7 +4,8 @@ Version: 0.1
 Authors@R: person("Joseph", "Stachelek", email = "stachel2@msu.edu", role = c("aut", "cre"))
 Description: Tools for working with the SPAtially Referenced Regression on Watershed attributes (SPARROW) models. 
 Depends: R (>= 3.4.1)
-Imports: nhdR
+Imports: nhdR, rappdirs, sf
+SystemRequirements: ogr2ogr e00conv
 License: GPL
 Encoding: UTF-8
 LazyData: true
