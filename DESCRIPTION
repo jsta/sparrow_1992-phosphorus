@@ -1,9 +1,11 @@
 Package: sparrow
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: Joseph Stachelek <stachel2@msu.edu>
-Description: What the package does (one paragraph).
+Title: SPARROW tools
+Version: 0.1
+Authors@R: person("Joseph", "Stachelek", email = "stachel2@msu.edu", role = c("aut", "cre"))
+Description: Tools for working with the SPAtially Referenced Regression on Watershed attributes (SPARROW) models. 
 Depends: R (>= 3.4.1)
+Imports: nhdR
 License: GPL
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
