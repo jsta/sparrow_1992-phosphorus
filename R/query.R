@@ -15,9 +15,7 @@ get_id <- function(lon, lat, lines, poly){
 
   pnt <- sf::st_sfc(sf::st_point(c(lon, lat)))
   st_crs(pnt) <- 4326
-
   erf_sub <- nhdR::select_point_overlay(pnt, lines, buffer_dist = 0.3)
-  pnt <- st_transform(pnt, st_crs(erf_sub))
 
   id_lake <- erf_sub[unlist(lapply(sf::st_intersects(erf_sub, poly),
                                    length)) > 0,]
