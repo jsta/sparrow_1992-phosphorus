@@ -3,6 +3,8 @@
 sparrow
 =======
 
+This package currently serves only the 1992 National Scale Phosphorus Model.
+
 Installation
 ------------
 
@@ -16,4 +18,4 @@ devtools::install_github("jsta/sparrow")
 Data
 ----
 
-GIS data can be obtained automatically with the `erf_get` function. You need to obtain phosphorus loading data manually before running `p_get` (until the SPARROW decision support system is made available again).
+GIS data can be obtained automatically with the `erf_get` function. Phosphorus data must be obtained manually and placed at `sparrow:::cache_path()` before running `p_get` (until the SPARROW decision support system is made available again).
