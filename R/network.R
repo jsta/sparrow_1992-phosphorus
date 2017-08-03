@@ -27,6 +27,5 @@ network <- function(lon, lat, lines, dbf, polygon){
   down_ids <- get_downstream_ids(id_lake, dbf)
   reaches  <- assign_reach_position(id_lake, up_ids, down_ids, polygon, lines)
 
-  # list(upstream_ids = up_ids, downstream_ids = down_ids, reaches = reaches)
-  reaches
+  list(upstream_ids = up_ids, downstream_ids = down_ids, reaches = reaches)
 }
