@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{erf_get}
 \alias{erf_get}
-\title{erf_get}
+\title{Get Enhanced River Reach Data}
 \usage{
 erf_get(version_id, skip = NA, dest_folder = NA, compile = TRUE)
 }
@@ -17,6 +17,9 @@ erf_get(version_id, skip = NA, dest_folder = NA, compile = TRUE)
 }
 \description{
 Retrieves external files and store in file cache.
+}
+\details{
+Get Enhanced River Reach data.
 }
 \examples{
 \dontrun{

@@ -3,8 +3,6 @@
 sparrow
 =======
 
-The goal of sparrow is to ...
-
 Installation
 ------------
 
@@ -15,11 +13,7 @@ You can install sparrow from github with:
 devtools::install_github("jsta/sparrow")
 ```
 
-Example
--------
+Data
+----
 
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-## basic example code
-```
+GIS data can be obtained automatically with the `erf_get` function. You need to obtain phosphorus loading data manually before running `p_get` (until the SPARROW decision support system is made available again).

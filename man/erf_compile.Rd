@@ -2,19 +2,19 @@
 % Please edit documentation in R/compile.R
 \name{erf_compile}
 \alias{erf_compile}
-\title{Compile data to R data (rds) object}
+\title{Compile erf data to an R data (rds) object}
 \usage{
 erf_compile(version_id, format = "rds", folder = NA)
 }
 \arguments{
 \item{version_id}{character temp database version string}
 
-\item{format}{character choice of "rds" or "sqlite"}
+\item{format}{"rds"}
 
 \item{folder}{file.path to data folder.}
 }
 \description{
-Compile data from component flat files
+Compile erf data from compressed files
 }
 \examples{
 \dontrun{

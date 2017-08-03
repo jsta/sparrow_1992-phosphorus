@@ -28,12 +28,17 @@ erf_compile <- function(version_id, format = "rds", folder = NA){
 #'@param version_id character temp database version string
 #'@param format "rds"
 #'@param folder file.path to data folder.
+#'@param skip numeric vector of lines to skip on file read. optional.
 #'@examples \dontrun{
 #' p_compile("1")
 #' }
-p_compile <- function(version_id, format = "rds", folder = NA){
+p_compile <- function(version_id, format = "rds", folder = NA, skip = NA){
 
-  res <- p_ingest(version_id = version_id, folder = folder)
+  if(is.na(folder)){
+    folder <- cache_path()
+  }
+
+  res <- p_ingest(version_id = version_id, folder = folder, skip = skip)
 
   # dir.exists(cache_path())
   dir.create(cache_path(), recursive = TRUE, showWarnings = FALSE)

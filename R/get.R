@@ -51,14 +51,5 @@ p_get <- function(version_id){
   versioned_path <- paste0(cache_path(), version_id)
   dir.create(versioned_path, showWarnings = FALSE)
 
-  files <- list.files(versioned_path, "predict_export")
-
-  if(length(files) == 0){
-    stop(paste0("You need to manually place phosphorus loading data at: ",
-              file.path(cache_path(), version_id)))
-  }
-
-  browser()
-
-  p_compile(files)
+  p_compile(version_id)
 }
