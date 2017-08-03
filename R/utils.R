@@ -20,3 +20,10 @@ stop_if_not_exists <- function(src_path) {
 get_version_list <- function(...){
   list.files(cache_path(), pattern = ".rds$", ...)
 }
+
+get_bathy <- function(zMax, lkeArea, numZ){
+  depth	<-	seq(0, zMax, length.out = numZ)
+  area	<-	approx(c(0, zMax), c(lkeArea, 0), depth)$y
+  bathymetry	<-	data.frame(depths = depth, areas = area)
+}
+

@@ -21,3 +21,20 @@ get_id <- function(lon, lat, lines, poly){
                                    length)) > 0,]
   id_lake$MRB_ID
 }
+
+get_lagos_id <- function(pnt, locus){
+
+  # try to match gnis name
+  gnis_match <- locus[grep(pnt$Name, locus$gnis_name),]
+  gnis_match <- st_as_sf(gnis_match, coords = c("nhd_long", "nhd_lat"),
+                         crs = 4326)
+
+  # try to match location
+  pnt_buffer <- st_buffer(pnt, 0.3)
+  if(nrow(gnis_match) > 0){
+    st_intersection(gnis_match, pnt_buffer)$lagoslakeid
+  }else{
+    st_intersection(st_as_sf(locus, coords = c("nhd_long", "nhd_lat"),
+                             crs = 4326), pnt_buffer)$lagoslakeid
+  }
+}

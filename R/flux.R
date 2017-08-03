@@ -22,3 +22,24 @@ get_p_flux <- function(id_upstream, id_downstream, p_inc, p_upstream){
 
   data.frame(loading = lk_inc + lk_up, outflow = lk_down)
 }
+
+#' Get Hydro Flux
+#'
+#' Get water flux given upstream and downstream nodes.
+#'
+#' @param id_upstream integer vector
+#' @param id_downstream integer vector
+#' @param p_flow data.frame
+#'
+#' @return data.frame
+#' @export
+#'
+get_hydro_flux <- function(id_upstream, id_downstream, p_flow){
+
+  lk_up   <- sum(p_flow[p_flow$id %in%
+                              id_upstream,]$Streamflowftsec)
+  lk_down <- sum(p_flow[p_flow$id %in%
+                              id_downstream,]$Streamflowftsec)
+
+  data.frame(inflow = lk_up, outflow = lk_down)
+}
