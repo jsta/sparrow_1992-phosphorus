@@ -22,6 +22,7 @@ get_id <- function(lon, lat, lines, poly){
   id_lake$MRB_ID
 }
 
+#' @importFrom sf st_buffer st_as_sf st_intersection
 get_lagos_id <- function(pnt, locus){
 
   # try to match gnis name

@@ -11,7 +11,7 @@ get_downstream_ids <- function(id_lake, erf){
 assign_reach_position <- function(id_lake, id_upstream, id_downstream,
                                   polygon, erf){
   erf_sub <- erf[erf$MRB_ID %in% c(id_lake, id_upstream, id_downstream),]
-  erf_sub <- sf::st_transform(erf_sub, sf::st_crs(wb_sub))
+  erf_sub <- sf::st_transform(erf_sub, sf::st_crs(polygon))
 
   erf_sub$position <- "focal"
   erf_sub[erf_sub$MRB_ID %in% id_downstream, "position"] <- "downstream"

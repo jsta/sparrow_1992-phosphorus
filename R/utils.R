@@ -21,6 +21,7 @@ get_version_list <- function(...){
   list.files(cache_path(), pattern = ".rds$", ...)
 }
 
+#' @importFrom stats approx
 get_bathy <- function(zMax, lkeArea, numZ){
   depth	<-	seq(0, zMax, length.out = numZ)
   area	<-	approx(c(0, zMax), c(lkeArea, 0), depth)$y
