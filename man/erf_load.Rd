@@ -9,7 +9,7 @@ erf_load(version_id, format = "rds", fpath = NA)
 \arguments{
 \item{version_id}{character database version string}
 
-\item{format}{character choice of rds}
+\item{format}{character choice of rds or dbf}
 
 \item{fpath}{file.path optionally specify custom location of rds file}
 }

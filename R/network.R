@@ -21,6 +21,17 @@ assign_reach_position <- function(id_lake, id_upstream, id_downstream,
   erf_sub
 }
 
+
+#' Return sparrow network
+#'
+#' @param lon longitude
+#' @param lat latitude
+#' @param lines linestring
+#' @param dbf dbf object
+#' @param polygon polygon
+#'
+#' @export
+#'
 network <- function(lon, lat, lines, dbf, polygon){
   id_lake  <- get_id(lon, lat, lines, polygon)
   up_ids   <- get_upstream_ids(id_lake, dbf)
