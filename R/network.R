@@ -7,19 +7,43 @@ assign_reach_position <- function(id_lake, dbf, polygon, erf){
   # fnodes_erf <- erf[erf$MRB_ID %in% fnodes$MRB_ID,]
   # mapview::mapview(fnodes_erf)
 
-  fnodes_upstream   <- fnodes[!(fnodes$FNODE_ %in% fnodes$TNODE_),]
-  fnodes_downstream <- fnodes[!(fnodes$TNODE_ %in% fnodes$FNODE_),]
-  fnodes_focal <- fnodes[!(fnodes$MRB_ID %in% fnodes_downstream$MRB_ID) &
-                           !(fnodes$MRB_ID %in% fnodes_upstream$MRB_ID), ]
+  if(nrow(fnodes) == 1){
+    # headwater if f not in t
+    if(!(any(dbf$TNODE_ == fnodes$FNODE_))){
+      fnodes_upstream   <- data.frame(MRB_ID = NA)
+      fnodes_downstream <- fnodes
+      fnodes_focal      <- data.frame(MRB_ID = NA)
+    }
+
+    # terminal if t not in any f
+    if(!(any(dbf$FNODE_ == fnodes$TNODE_))){
+      fnodes_upstream   <- fnodes
+      fnodes_downstream <- data.frame(MRB_ID = NA)
+      fnodes_focal      <- data.frame(MRB_ID = NA)
+    }
+
+  }else{
+    fnodes_upstream   <- fnodes[!(fnodes$FNODE_ %in% fnodes$TNODE_),]
+    fnodes_downstream <- fnodes[!(fnodes$TNODE_ %in% fnodes$FNODE_),]
+    fnodes_focal      <- fnodes[
+      !(fnodes$MRB_ID %in% fnodes_downstream$MRB_ID) &
+        !(fnodes$MRB_ID %in% fnodes_upstream$MRB_ID), ]
+  }
 
   erf_sub <- erf[erf$MRB_ID %in% fnodes$MRB_ID,]
   erf_sub <- sf::st_transform(erf_sub, sf::st_crs(polygon))
 
   erf_sub$position <- "focal"
-  erf_sub[erf_sub$MRB_ID %in%
+
+  if(!is.na(fnodes_downstream$MRB_ID)){
+    erf_sub[erf_sub$MRB_ID %in%
             fnodes_downstream$MRB_ID, "position"] <- "downstream"
-  erf_sub[erf_sub$MRB_ID %in%
+  }
+
+  if(!is.na(fnodes_upstream$MRB_ID)){
+    erf_sub[erf_sub$MRB_ID %in%
             fnodes_upstream$MRB_ID, "position"]   <- "upstream"
+  }
   erf_sub$position <- factor(erf_sub$position,
                              levels = c("upstream", "focal", "downstream"))
   list(erf_sub = erf_sub,
