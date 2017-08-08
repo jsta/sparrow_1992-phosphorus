@@ -35,20 +35,21 @@ assign_reach_position <- function(id_lake, dbf, polygon, erf){
 
   erf_sub$position <- "focal"
 
-  if(!is.na(fnodes_downstream$MRB_ID)){
+  if(!all(is.na(fnodes_downstream$MRB_ID))){
     erf_sub[erf_sub$MRB_ID %in%
             fnodes_downstream$MRB_ID, "position"] <- "downstream"
   }
 
-  if(!is.na(fnodes_upstream$MRB_ID)){
+  if(!all(is.na(fnodes_upstream$MRB_ID))){
     erf_sub[erf_sub$MRB_ID %in%
             fnodes_upstream$MRB_ID, "position"]   <- "upstream"
   }
   erf_sub$position <- factor(erf_sub$position,
                              levels = c("upstream", "focal", "downstream"))
   list(erf_sub = erf_sub,
-       up_ids = fnodes_upstream$MRB_ID,
-       down_ids = fnodes_downstream$MRB_ID)
+       up_ids = fnodes_upstream$E2RF1,
+       focal_ids = fnodes_focal$E2RF1,
+       down_ids = fnodes_downstream$E2RF1)
 }
 
 
@@ -67,6 +68,7 @@ network <- function(lon, lat, lines, dbf, polygon){
   reaches  <- assign_reach_position(id_lake, dbf, polygon, lines)
 
   list(upstream_ids = reaches$up_ids,
+       focal_ids = reaches$focal_ids,
        downstream_ids = reaches$down_ids,
        reaches = reaches$erf_sub)
 }

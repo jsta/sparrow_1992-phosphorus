@@ -4,6 +4,7 @@
 #'  incremental and total load data.
 #'
 #' @param id_upstream integer vector
+#' @param id_focal integer vector
 #' @param id_downstream integer vector
 #' @param p_inc data.frame
 #' @param p_upstream data.frame
@@ -11,14 +12,14 @@
 #' @return data.frame
 #' @export
 #'
-get_p_flux <- function(id_upstream, id_downstream, p_inc, p_upstream){
+get_p_flux <- function(id_upstream, id_focal, id_downstream, p_inc, p_upstream){
 
   lk_inc  <- sum(p_inc[p_inc$id %in%
-                            id_upstream,]$MappedValueIncrementalLoadkgyear)
+                        id_focal,]$MappedValueIncrementalLoadkgyear)
   lk_up   <- sum(p_upstream[p_upstream$id %in%
-                            id_upstream,]$MappedValueTotalLoadkgyear)
+                      c(id_upstream, id_focal),]$MappedValueTotalLoadkgyear)
   lk_down <- sum(p_upstream[p_upstream$id %in%
-                            id_downstream,]$MappedValueTotalLoadkgyear)
+                        id_downstream,]$MappedValueTotalLoadkgyear)
 
   data.frame(loading = lk_inc + lk_up, outflow = lk_down)
 }
