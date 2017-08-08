@@ -1,13 +1,3 @@
-get_upstream_ids <- function(id_lake, erf){
-  fnodes <- erf[erf$MRB_ID %in% id_lake, "FNODE_"]
-  erf[erf$TNODE_ %in% fnodes,]$MRB_ID
-}
-
-get_downstream_ids <- function(id_lake, erf){
-  tnodes <- erf[erf$MRB_ID %in% id_lake, "TNODE_"]
-  erf[erf$FNODE_ %in% tnodes,]$MRB_ID
-}
-
 assign_reach_position <- function(id_lake, dbf, polygon, erf){
 
   dbf <- dbf[!duplicated(dbf$MRB_ID),]

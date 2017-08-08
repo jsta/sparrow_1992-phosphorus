@@ -25,8 +25,9 @@ get_id <- function(lon, lat, lines, poly){
   #                               function(x){length(x) > 0}),]
   # mapview::mapview(list(crosses_lines), zcol = list("MRB_ID"))
 
-  intersects_lines <- lines[sapply(st_intersects(lines, poly),
-                                   function(x){length(x) > 0}),]
+  intersects_lines <- lines[sapply(st_intersects(lines,
+                                      st_buffer(poly, dist = 200)),
+                              function(x){length(x) > 0}),]
 
   list(intersects = intersects_lines$MRB_ID, within = within_lines$MRB_ID)
 }
