@@ -41,7 +41,7 @@ get_lagos_id <- function(pnt, locus){
                          crs = 4326)
 
   # try to match location
-  pnt_buffer <- st_buffer(pnt, 0.03)
+  pnt_buffer <- st_buffer(pnt, 0.02)
   if(nrow(gnis_match) > 0){
     st_intersection(gnis_match, pnt_buffer)$lagoslakeid
   }else{
