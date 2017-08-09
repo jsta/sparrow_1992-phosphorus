@@ -4,10 +4,12 @@
 \alias{get_p_flux}
 \title{Get Phosphorus Flux}
 \usage{
-get_p_flux(id_upstream, id_downstream, p_inc, p_upstream)
+get_p_flux(id_upstream, id_focal, id_downstream, p_inc, p_upstream)
 }
 \arguments{
 \item{id_upstream}{integer vector}
+
+\item{id_focal}{integer vector}
 
 \item{id_downstream}{integer vector}
 
