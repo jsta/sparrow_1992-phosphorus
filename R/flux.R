@@ -16,8 +16,10 @@ get_p_flux <- function(id_upstream, id_focal, id_downstream, p_inc, p_upstream){
 
   lk_inc  <- sum(p_inc[p_inc$id %in%
                         id_focal,]$MappedValueIncrementalLoadkgyear)
+  # lk_up   <- sum(p_upstream[p_upstream$id %in%
+  #                     c(id_upstream, id_focal),]$MappedValueTotalLoadkgyear)
   lk_up   <- sum(p_upstream[p_upstream$id %in%
-                      c(id_upstream, id_focal),]$MappedValueTotalLoadkgyear)
+                      c(id_upstream),]$MappedValueTotalLoadkgyear)
   lk_down <- sum(p_upstream[p_upstream$id %in%
                         id_downstream,]$MappedValueTotalLoadkgyear)
 
