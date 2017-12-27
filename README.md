@@ -19,3 +19,8 @@ Data
 ----
 
 GIS data can be obtained automatically with the `erf_get` function. Phosphorus data must be obtained manually and placed at the location returned by `sparrow:::cache_path()` before running `p_get` (until the SPARROW decision support system is made available again).
+
+Further Reading
+---------------
+
+See <https://water.usgs.gov/nawqa/sparrow/>
