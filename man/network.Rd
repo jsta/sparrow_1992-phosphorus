@@ -20,3 +20,25 @@ network(lon, lat, lines, dbf, polygon)
 \description{
 Return sparrow network
 }
+\examples{
+\dontrun{
+
+library(nhdR)
+library(sf)
+
+wk <- data.frame(Lon = -73.77298, Lat = 43.78827)
+wb      <- nhd_plus_query(wk$Lon, wk$Lat,
+                          dsn = c("NHDWaterBody"),
+                          buffer_dist = 0.02,
+                          approve_all_dl = TRUE)$sp$NHDWaterBody
+wb_sub  <- wb[!is.na(wb$GNIS_NAME),]
+
+erf_dbf <- erf_load("1", format = "dbf")
+erf     <- erf_load("1")
+erf     <- st_transform(erf, crs = st_crs(wb_sub))
+erf_sub <- erf[sapply(st_intersects(erf, st_buffer(wb_sub, 5000)),
+                      function(x){length(x) > 0}),]
+
+network(wk$Lon, wk$Lat, erf_sub, erf_dbf, wb_sub)
+}
+}
