@@ -3,7 +3,9 @@
 sparrow
 =======
 
-This package currently serves only the 1992 National Scale Phosphorus Model.
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
+
+This package currently handles only the 1992 National Scale Phosphorus Model.
 
 Installation
 ------------

@@ -3,6 +3,8 @@ Title: SPARROW tools
 Version: 0.1
 Authors@R: person("Joseph", "Stachelek", email = "stachel2@msu.edu", role = c("aut", "cre"))
 Description: Tools for working with the SPAtially Referenced Regression on Watershed attributes (SPARROW) models. 
+URL: https://github.com/jsta/sparrow
+BugReports: https://github.com/jsta/sparrow/issues
 Depends: R (>= 3.4.1)
 Imports: nhdR, rappdirs, sf, purrr, foreign
 SystemRequirements: ogr2ogr e00conv
