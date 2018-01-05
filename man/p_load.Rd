@@ -2,7 +2,7 @@
 % Please edit documentation in R/load.R
 \name{p_load}
 \alias{p_load}
-\title{p_load}
+\title{Load phosphorus data}
 \usage{
 p_load(version_id, format = "rds", fpath = NA)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/load.R
 \name{erf_load}
 \alias{erf_load}
-\title{erf_load}
+\title{Load Enhanced River Reach Data}
 \usage{
 erf_load(version_id, format = "rds", fpath = NA)
 }

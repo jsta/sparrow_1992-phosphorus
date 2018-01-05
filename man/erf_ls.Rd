@@ -2,7 +2,7 @@
 % Please edit documentation in R/ingest.R
 \name{erf_ls}
 \alias{erf_ls}
-\title{erf_ls}
+\title{List Enhanced River Reach data files}
 \usage{
 erf_ls(version_id, ...)
 }
@@ -12,7 +12,7 @@ erf_ls(version_id, ...)
 \item{...}{extra arguments passed to list.files}
 }
 \description{
-erf_ls
+List Enhanced River Reach data files
 }
 \examples{
 \dontrun{

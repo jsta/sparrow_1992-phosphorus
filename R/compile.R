@@ -1,5 +1,5 @@
 #'@name erf_compile
-#'@title Compile erf data to an R data (rds) object
+#'@title Compile Enhanced River Reach data to an R data (rds) object
 #'@export
 #'@description Compile erf data from compressed files
 #'@param version_id character temp database version string

@@ -2,7 +2,7 @@
 % Please edit documentation in R/compile.R
 \name{erf_compile}
 \alias{erf_compile}
-\title{Compile erf data to an R data (rds) object}
+\title{Compile Enhanced River Reach data to an R data (rds) object}
 \usage{
 erf_compile(version_id, format = "rds", folder = NA)
 }

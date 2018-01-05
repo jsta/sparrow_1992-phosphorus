@@ -110,12 +110,34 @@
     </table>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>library</span>(<span class='no'>nhdR</span>)
+<span class='fu'>library</span>(<span class='no'>sf</span>)
+
+<span class='no'>wk</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>Lon</span> <span class='kw'>=</span> -<span class='fl'>73.77298</span>, <span class='kw'>Lat</span> <span class='kw'>=</span> <span class='fl'>43.78827</span>)
+<span class='no'>wb</span>      <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/nhdR/topics/nhd_plus_query'>nhd_plus_query</a></span>(<span class='no'>wk</span>$<span class='no'>Lon</span>, <span class='no'>wk</span>$<span class='no'>Lat</span>,
+                          <span class='kw'>dsn</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"NHDWaterBody"</span>),
+                          <span class='kw'>buffer_dist</span> <span class='kw'>=</span> <span class='fl'>0.02</span>,
+                          <span class='kw'>approve_all_dl</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)$<span class='no'>sp</span>$<span class='no'>NHDWaterBody</span>
+<span class='no'>wb_sub</span>  <span class='kw'>&lt;-</span> <span class='no'>wb</span>[!<span class='fu'>is.na</span>(<span class='no'>wb</span>$<span class='no'>GNIS_NAME</span>),]
+
+<span class='no'>erf_dbf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='erf_load.html'>erf_load</a></span>(<span class='st'>"1"</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"dbf"</span>)
+<span class='no'>erf</span>     <span class='kw'>&lt;-</span> <span class='fu'><a href='erf_load.html'>erf_load</a></span>(<span class='st'>"1"</span>)
+<span class='no'>erf</span>     <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/sf/topics/st_transform'>st_transform</a></span>(<span class='no'>erf</span>, <span class='kw'>crs</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/sf/topics/st_crs'>st_crs</a></span>(<span class='no'>wb_sub</span>))
+<span class='no'>erf_sub</span> <span class='kw'>&lt;-</span> <span class='no'>erf</span>[<span class='fu'>sapply</span>(<span class='fu'><a href='http://www.rdocumentation.org/packages/sf/topics/geos_binary_pred'>st_intersects</a></span>(<span class='no'>erf</span>, <span class='fu'><a href='http://www.rdocumentation.org/packages/sf/topics/geos_unary'>st_buffer</a></span>(<span class='no'>wb_sub</span>, <span class='fl'>5000</span>)),
+                      <span class='kw'>function</span>(<span class='no'>x</span>){<span class='fu'>length</span>(<span class='no'>x</span>) <span class='kw'>&gt;</span> <span class='fl'>0</span>}),]
+
+<span class='fu'>network</span>(<span class='no'>wk</span>$<span class='no'>Lon</span>, <span class='no'>wk</span>$<span class='no'>Lat</span>, <span class='no'>erf_sub</span>, <span class='no'>erf_dbf</span>, <span class='no'>wb_sub</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

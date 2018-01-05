@@ -1,4 +1,5 @@
-#' erf_load
+#' Load Enhanced River Reach Data
+#'
 #' @description Load files from local file system
 #' @param version_id character database version string
 #' @param format character choice of rds or dbf
@@ -29,7 +30,8 @@ erf_load <- function(version_id, format = "rds", fpath = NA){
   }
 }
 
-#' p_load
+#' Load phosphorus data
+#'
 #' @description Load files from local file system
 #' @param version_id character database version string
 #' @param format character choice of rds

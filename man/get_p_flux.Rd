@@ -2,7 +2,7 @@
 % Please edit documentation in R/flux.R
 \name{get_p_flux}
 \alias{get_p_flux}
-\title{Get Phosphorus Flux}
+\title{Get phosphorus flux}
 \usage{
 get_p_flux(id_upstream, id_focal, id_downstream, p_inc, p_upstream)
 }

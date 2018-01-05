@@ -1,4 +1,4 @@
-#' Get Enhanced River Reach Data
+#' Get Enhanced River Reach data
 #'
 #' Get Enhanced River Reach data.
 #'
@@ -36,7 +36,7 @@ erf_get <- function(version_id, skip = NA, dest_folder = NA, compile = TRUE){
   }
 }
 
-#' Get Phosphorus Loading Data
+#' Get phosphorus loading data
 #'
 #' Get phosphorus loading data.
 #'

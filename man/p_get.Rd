@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{p_get}
 \alias{p_get}
-\title{Get Phosphorus Loading Data}
+\title{Get phosphorus loading data}
 \usage{
 p_get(version_id)
 }

@@ -1,4 +1,4 @@
-#' Get Phosphorus Flux
+#' Get phosphorus flux
 #'
 #' Get phosphorus flux given upstream and downstream nodes as well as
 #'  incremental and total load data.
@@ -26,7 +26,7 @@ get_p_flux <- function(id_upstream, id_focal, id_downstream, p_inc, p_upstream){
   data.frame(loading = lk_inc + lk_up, outflow = lk_down)
 }
 
-#' Get Hydro Flux
+#' Get hydro flux
 #'
 #' Get water flux given upstream and downstream nodes.
 #'

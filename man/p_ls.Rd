@@ -2,7 +2,7 @@
 % Please edit documentation in R/ingest.R
 \name{p_ls}
 \alias{p_ls}
-\title{p_ls}
+\title{List phosphorus data files}
 \usage{
 p_ls(version_id, ...)
 }
@@ -12,7 +12,7 @@ p_ls(version_id, ...)
 \item{...}{extra arguments passed to list.files}
 }
 \description{
-p_ls
+List phosphorus data files
 }
 \examples{
 \dontrun{

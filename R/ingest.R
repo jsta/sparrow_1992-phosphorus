@@ -1,4 +1,4 @@
-#' erf_ls
+#' List Enhanced River Reach data files
 #'
 #' @param version_id character version id
 #' @param ... extra arguments passed to list.files
@@ -13,7 +13,7 @@ erf_ls <- function(version_id, ...){
              pattern = "\\d.e00$", ...)
 }
 
-#' p_ls
+#' List phosphorus data files
 #'
 #' @param version_id character version id
 #' @param ... extra arguments passed to list.files

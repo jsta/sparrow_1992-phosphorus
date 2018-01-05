@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{erf_get}
 \alias{erf_get}
-\title{Get Enhanced River Reach Data}
+\title{Get Enhanced River Reach data}
 \usage{
 erf_get(version_id, skip = NA, dest_folder = NA, compile = TRUE)
 }

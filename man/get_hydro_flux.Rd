@@ -2,7 +2,7 @@
 % Please edit documentation in R/flux.R
 \name{get_hydro_flux}
 \alias{get_hydro_flux}
-\title{Get Hydro Flux}
+\title{Get hydro flux}
 \usage{
 get_hydro_flux(id_upstream, id_downstream, p_flow)
 }
